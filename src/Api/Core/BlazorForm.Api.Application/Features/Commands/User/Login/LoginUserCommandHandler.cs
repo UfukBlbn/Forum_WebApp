@@ -15,7 +15,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlazorForm.Api.Application.Features.Commands.User
+namespace BlazorForm.Api.Application.Features.Commands.User.Login
 {
     public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, LoginUserViewModel>
     {
@@ -35,7 +35,7 @@ namespace BlazorForm.Api.Application.Features.Commands.User
             var dbUser = await userRepository.GetSingleAsync(u => u.EmailAddress == request.EmailAddress);
 
             if (dbUser == null)
-                
+
                 throw new DatabaseValidationException("User not Found");
 
             var pass = PasswordEncyrptor.Encyrpt(request.Password);
