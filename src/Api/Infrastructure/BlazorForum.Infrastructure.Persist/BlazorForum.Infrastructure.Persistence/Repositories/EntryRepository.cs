@@ -1,5 +1,6 @@
 ﻿using BlazorForm.Api.Application.Interfaces.Repositories;
 using BlazorForum.Api.Domain.Models;
+using BlazorForum.Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace BlazorForum.Infrastructure.Persistence.Repositories
 {
     public class EntryRepository : GenericRepository<Entry>, IEntryRepository
     {
-        public EntryRepository(DbContext dbContext) : base(dbContext)
+        public EntryRepository(BlazorForumContext dbContext) : base(dbContext)
         {
         }
     }

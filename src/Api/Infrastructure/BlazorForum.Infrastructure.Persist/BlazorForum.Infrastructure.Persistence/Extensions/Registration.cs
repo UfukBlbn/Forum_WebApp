@@ -29,6 +29,12 @@ namespace BlazorForum.Infrastructure.Persistence.Extensions
             //var seedData = new SeedData();
             //seedData.SeedAsync(configuration).GetAwaiter().GetResult();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IEmailConfirmationRepository, EmailConfirmationRepository>();
+            services.AddScoped<IEntryCommentRepository, EntryCommentRepository>();
+            services.AddScoped<IEntryRepository, EntryRepository>();
+ 
+
+
             return services;
         }
     }

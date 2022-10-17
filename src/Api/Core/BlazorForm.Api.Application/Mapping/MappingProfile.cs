@@ -25,7 +25,10 @@ namespace BlazorForm.Api.Application.Mapping
                 .ReverseMap();
 
             CreateMap<Entry, CreateEntryCommand>()
-                .ReverseMap(); 
+                .ReverseMap();
+
+            CreateMap<Entry, GetEntriesViewModal>()
+                .ForMember(x=>x.CommentCount, y=>y.MapFrom(z=>z.EntryComments.Count)); 
             
             CreateMap<CreateEntryCommentCommand,EntryComment>()
                 .ReverseMap();

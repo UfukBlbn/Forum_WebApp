@@ -1,5 +1,6 @@
 ﻿using BlazorForm.Api.Application.Interfaces.Repositories;
 using BlazorForum.Api.Domain.Models;
+using BlazorForum.Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace BlazorForum.Infrastructure.Persistence.Repositories
 {
     public class EntryCommentRepository : GenericRepository<EntryComment>, IEntryCommentRepository
     {
-        public EntryCommentRepository(DbContext dbContext) : base(dbContext)
+        public EntryCommentRepository(BlazorForumContext dbContext) : base(dbContext)
         {
         }
     }

@@ -1,4 +1,6 @@
-﻿using BlazorForum.Common.Events.Entry;
+﻿using BlazorForm.Api.Application.Features.Queries.GetEntries;
+using BlazorForm.Api.Application.Features.Queries.GetMainPageEntries;
+using BlazorForum.Common.Events.Entry;
 using BlazorForum.Common.Models.RequestModels;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +16,24 @@ namespace BlazorForum.Api.WebApi.Controllers
         {
             this.mediator = mediator;
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetEntries([FromQuery] GetEntriesQuery query)
+        {
+            var entries = await mediator.Send(query);
+
+            return Ok(entries);
+        }
+
+        [HttpGet]
+        [Route("GetMainPageEntries")]
+        public async Task<IActionResult> GetMainPageEntries(int page, int pageSize)
+        {
+            var entries = await mediator.Send(new GetMainPageEntriesQuery(UserId,page,pageSize));
+
+            return Ok(entries);
+        }
+
 
         [HttpPost]
         [Route("CreateEntry")]

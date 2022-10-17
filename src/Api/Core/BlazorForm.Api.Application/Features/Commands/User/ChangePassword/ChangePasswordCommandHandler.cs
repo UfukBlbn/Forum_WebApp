@@ -37,7 +37,7 @@ namespace BlazorForm.Api.Application.Features.Commands.User.ChangePassword
             if (dbUser.Password != encryptedPass)
                 throw new DatabaseValidationException("Old password wrong !");
              
-            dbUser.Password = encryptedPass;
+            dbUser.Password = PasswordEncyrptor.Encyrpt(request.NewPassword);
 
             await userRepository.UpdateAsync(dbUser);
 

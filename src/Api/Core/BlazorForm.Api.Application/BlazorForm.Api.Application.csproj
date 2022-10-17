@@ -13,6 +13,7 @@
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.1.0" />
     <PackageReference Include="MediatR" Version="10.0.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.7" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
   </ItemGroup>
@@ -22,7 +23,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Queries\" />
+    <Folder Include="Features\Queries\GetEntryComments\" />
+    <Folder Include="Features\Queries\GetUserDetail\" />
+    <Folder Include="Features\Queries\GetUserEntries\" />
+    <Folder Include="Features\Queries\GetEntryDetail\" />
+    <Folder Include="Features\Queries\SearchBySubject\" />
   </ItemGroup>
 
 </Project>
